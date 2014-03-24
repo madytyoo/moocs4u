@@ -1,0 +1,14 @@
+<div class="list-group">
+    <div class="list-group-item">
+        <h3>{{platform.name}}</h3>
+    </div>
+</div>
+<div class="scrollable">
+    <div class="scrollable-content">
+        <div class="list-group">
+            <a ng-repeat="c in platform.categories" href="#/category/{{c.id}}" class="list-group-item">
+                {{ c.name }} <i class="fa fa-chevron-right pull-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
