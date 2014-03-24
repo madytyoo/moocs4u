@@ -9,19 +9,19 @@
         <link rel="stylesheet" href="css/mobile-angular-ui-desktop.min.css">
         <title>MOOCS4u</title>
     </head>
-    <body>
+    <body ng-controller="MainController">
     <div ng-include="'sidebar.html'" class="sidebar sidebar-left" toggleable parent-active-class="sidebar-left-in" id="mainSidebar"></div>
     <div class="app">
         <!-- Navbar -->
         <div class="navbar navbar-app navbar-absolute-top">
             <div class="btn-group pull-left">
                 <div ng-click="toggle('mainSidebar')" class="btn btn-navbar sidebar-toggle">
-                    <i class="fa fa-bars"></i> Menu
+                    <i class="fa fa-bars"></i>
                 </div>
             </div>
 
             <div class="navbar-brand navbar-brand-center" yield-to="title">
-                <h4><strong>MOOCs4U</strong</h4>
+                <h4>MOOCs4U</h4>
             </div>
         </div>
 

@@ -4391,9 +4391,9 @@ a.list-group-item:focus, a.list-group-item:hover {
 
 a.list-group-item.active, a.list-group-item.active:focus, a.list-group-item.active:hover {
     z-index: 2;
-    color: #fff;
-    background-color: #007aff;
-    border-color: #007aff
+    color: #555;
+    background-color: #e0e0e0;
+    border-color: #e0e0e0
 }
 
 a.list-group-item.active .list-group-item-heading, a.list-group-item.active:focus .list-group-item-heading, a.list-group-item.active:hover .list-group-item-heading {
@@ -5439,7 +5439,7 @@ body, html {
     padding-top: 0;
     padding-bottom: 0;
     line-height: 50px;
-    color: #007aff;
+    color: #FFFFFF;
     text-transform: uppercase;
     background: 0 0;
     border: 0
