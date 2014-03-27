@@ -1,0 +1,29 @@
+<div class="scrollable">
+    <div class="scrollable-content">
+        <div class="list-group">
+            <div class="list-group-item">
+                <img src="{{course.icon}}">
+                <p>
+                    <h4>{{course.name}}</h4>
+                </p>
+                <p class="text-muted">{{course.university}}</p>
+                <h4>{{course.instructor}}</h4>
+                <p>{{course.description.value}}</p>
+
+                <p><strong>Category:</strong> <span ng-repeat="c in course.categories">{{c.name}}<span ng-hide="$last">, </span></span></p>
+                <p><strong>Length:</strong> {{course.duration}}</p>
+                <p><strong>Estimated Effort:</strong> {{course.effort}}</p>
+                <p ng-show="course.prerequisites.length > 0" ><strong>Prerequisites:</strong> {{course.prerequisites}}</p>
+                <p><strong>Type of Certificate:</strong> {{course.typeOrCertificate}}</p>
+                <p><strong>Country:</strong> {{course.country}}</p>
+                <p><strong>Language:</strong> {{course.language}}</p>
+                <p><strong>Start Date:</strong> {{course.startDate | date:'dd MMM yyyy'}}</p>
+            </div>
+            <div class="list-group-item" style="text-align: center">
+                <a href="{{course.signUpURL}}" class="btn btn-primary" target="_blank">
+                    Sign Up
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
