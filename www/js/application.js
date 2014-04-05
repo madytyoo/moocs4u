@@ -41,7 +41,7 @@ angular.module('moocs4u', ["ngRoute","mobile-angular-ui","mobile-angular-ui.touc
                 $rootScope.loading = false;
             });
 
-        }).controller('PlatformCtrl', function($rootScope, $scope,$http,$routeParams,$window){
+        }).controller('PlatformCtrl', function($rootScope, $scope,$http,$routeParams,$timeout,$location){
 
             $rootScope.$on("$routeChangeStart", function(){
                 $rootScope.loading = true;
@@ -54,6 +54,15 @@ angular.module('moocs4u', ["ngRoute","mobile-angular-ui","mobile-angular-ui.touc
                     $rootScope.loading = false;
                 })
             }
+
+            $scope.logout = function() {
+                $rootScope.loading = true;
+                $http.get(host + '/logout?id=' + $routeParams.platformID ).success(function (data) {
+                    $location.path('/#/platform/' +$routeParams.platformID );
+
+                })
+            }
+
 
 
         }).controller('CategoryCtrl', function($rootScope, $scope,$http,$routeParams){
