@@ -1,17 +1,44 @@
-<div class="list-group">
-    <div class="list-group-item">
-        <button ng-click="openWindow()" ng-show="platform.name == 'Coursera'" class="btn btn-primary pull-right">
-            Login
-        </button>
-        <h3>{{platform.name}}</h3>
-    </div>
-</div>
 <div class="scrollable">
     <div class="scrollable-content">
         <div class="list-group">
-            <a ng-repeat="c in platform.categories" href="#/category/{{c.id}}" class="list-group-item">
-                {{ c.name }} <i class="fa fa-chevron-right pull-right"></i>
-            </a>
+            <div class="list-group-item">
+                <a href="https://accounts.coursera.org/oauth2/v1/auth?response_type=code&client_id=JlM8nPPUbsJYQ4aDNk7tJg&redirect_uri=http://test-crawler-moocs4u.appspot.com/oauth2/callback&scope=view_profile&state=" ng-show="platform.name == 'Coursera' && !platform.in" class="btn btn-primary pull-right">
+                    <i class="fa fa-sign-in"></i> Login
+                </a>
+                <a href="/logout" ng-show="platform.name == 'Coursera' && platform.in" class="btn btn-primary pull-right">
+                    <i class="fa fa-sign-out"></i> Logout
+                </a>
+                <ul class="nav nav-tabs">
+                    <li><a href="#Tab1" toggle="on" parent-active-class="active"><h3>{{platform.name}}</h3></a></li>
+                    <li ng-show="platform.name == 'Coursera' && platform.in"><a href="#Tab2" toggle="on" parent-active-class="active"><h3>Your Courses</h3></a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane" toggleable active-class="active" default="active" id="Tab1" exclusion-group="myTabs">
+                        <div class="list-group">
+                            <a ng-repeat="c in platform.categories" href="#/category/{{c.id}}" class="list-group-item">
+                                {{ c.name }} <i class="fa fa-chevron-right pull-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="tab-pane" toggleable active-class="active" id="Tab2" exclusion-group="myTabs">
+                        <div class="list-group">
+                            <a class="list-group-item media" href="#/course/{{c.id}}" ng-repeat="c in platform.courses">
+                                <div class="pull-left">
+                                    <img src="{{c.icon}}" style="width: 100px">
+                                </div>
+                                <div class="media-body">
+                                    <h5 class="media-heading"><strong>{{ c.name }}</strong></h5>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+
+
+
+
