@@ -41,7 +41,7 @@ angular.module('moocs4u', ["ngRoute","mobile-angular-ui","mobile-angular-ui.touc
                 $rootScope.loading = false;
             });
 
-        }).controller('PlatformCtrl', function($rootScope, $scope,$http,$routeParams){
+        }).controller('PlatformCtrl', function($rootScope, $scope,$http,$routeParams,$window){
 
             $rootScope.$on("$routeChangeStart", function(){
                 $rootScope.loading = true;
@@ -54,6 +54,12 @@ angular.module('moocs4u', ["ngRoute","mobile-angular-ui","mobile-angular-ui.touc
                     $rootScope.loading = false;
                 })
             }
+            $scope.openWindow = function() {
+                var authUrl = "https://accounts.coursera.org/oauth2/v1/auth?response_type=code&client_id=JlM8nPPUbsJYQ4aDNk7tJg&redirect_uri=http://test-crawler-moocs4u.appspot.com/oauth2/callback&scope=view_profile&state=";
+                var authWindow = $window.open(authUrl, '_blank', 'location=no,toolbar=no');
+                authWindow.addEventListener('loadstart', function() { alert() });
+            }
+
 
         }).controller('CategoryCtrl', function($rootScope, $scope,$http,$routeParams){
             $scope.category = {};
